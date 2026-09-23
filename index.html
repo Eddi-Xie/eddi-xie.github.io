@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eddi Xie</title>
+  <meta name="description" content="Eddi Xie, MIE Robotics Master of Engineering student at the University of Toronto, currently building a two-arm active vision rig. Experience includes an autonomous drone, a gradient 3D-printing capstone for the BC Cancer Research Centre, and Coddle. Looking for an 8-month co-op (May–December 2027) or other opportunities.">
+  <meta property="og:title" content="Eddi Xie">
+  <meta property="og:description" content="MIE Robotics MEng student at the University of Toronto, looking for an 8-month co-op (May–December 2027) or other opportunities.">
+  <meta property="og:image" content="https://eddi-xie.github.io/assets/teleop-poster.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta name="theme-color" content="#F3F4F2">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/B612-Regular-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/B612-Bold-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#top">Skip navigation</a>
+
+  <nav class="nav" aria-label="Sections">
+    <ul>
+      <li><a href="#rig">Arm rig</a></li>
+      <li><a href="#drone">Drone</a></li>
+      <li><a href="#capstone">Capstone</a></li>
+      <li><a href="#coddle">Coddle</a></li>
+      <li><a href="#shutters">Shutters</a></li>
+      <li><a href="#lockin">Lock-In</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="resume.pdf">Resume (PDF)</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero grid" id="top">
+    <figure class="film">
+      <div class="frame">
+        <video width="1280" height="720" muted loop playsinline preload="metadata" poster="assets/teleop-poster.jpg" controls aria-describedby="film-caption">
+          <source src="assets/teleop.mp4" type="video/mp4">
+        </video>
+        <button type="button" class="play" hidden>Play</button>
+      </div>
+      <figcaption id="film-caption" class="caption">Two 3D-printed SO-101 arms in action: the leader arm teleoperating the follower to use pliers to put a plastic needle into a box.</figcaption>
+    </figure>
+    <div class="card">
+      <h1>Eddi Xie</h1>
+      <p class="links"><a href="resume.pdf">Resume (PDF)</a><a href="https://github.com/Eddi-Xie">GitHub</a><a href="mailto:eddi.xie@mail.utoronto.ca">Email</a></p>
+      <p>Probably building something right now.</p>
+      <p class="small">MEng, University of Toronto, MIE robotics emphasis, 2026–28.</p>
+      <p class="small">Looking for an 8-month co-op, May–December 2027, or other opportunities. Toronto.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="grid rig" id="rig">
+      <div class="head">
+        <h2>Two-arm imitation-learning rig</h2>
+        <p class="small">Fall 2026, in progress.</p>
+      </div>
+      <figure class="still-a">
+        <img src="assets/rig-still-a.jpg" width="1300" height="731" alt="Two five-jointed printed robot arms on a bench, one black and one red, wired to servos, with a laptop open behind them." loading="lazy" decoding="async">
+        <figcaption class="caption">The arm pair set up and connected to my laptop, in black PLA for the leader and red for the follower.</figcaption>
+      </figure>
+      <figure class="still-b">
+        <img src="assets/rig-still-b.jpg" width="800" height="450" alt="Close view of the black leader arm with its pistol grip, the red follower beside it, and a 3D printer on the bench behind." loading="lazy" decoding="async">
+        <figcaption class="caption">The leader, with the grip I hold, and the printer that made both arms behind it.</figcaption>
+      </figure>
+      <div class="text">
+        <p>Two SO-101 arms from the LeRobot ecosystem, five degrees of freedom each, printed on my own printer, assembled and calibrated, with compliant TPU fingers (not yet installed in the photos). Leader–follower teleoperation has worked since Sept 20, 2026: I move the leader by hand and the follower copies it.</p>
+        <p>Goals for the project come in three tiers. Tier 1, by Dec 13, 2026: on my kitchen island, the arm recognizes about six kitchen items and puts each where it belongs, running an imitation-learning policy trained on my own teleoperated demonstrations. Tier 2 adds object pose tracking, camera-based hand tracking and a load-cell admittance loop for home chores. Tier 3 puts it on a mobile base, with hardware upgrades, for kitchen prep tasks.</p>
+        <p>My perception course project also uses the arm, for active vision in imitation learning. Does pointing a moving camera where the policy is most uncertain (next best view) beat a fixed camera, or a simple rule that keeps the gripper in view? Three stages: in simulation (AV-ALOHA), on the real two-arm rig, then both arms working at once, each bending its own motion so its wrist camera helps the other.</p>
+      </div>
+      <aside class="side" aria-label="Milestones">
+        <ol class="milestones">
+          <li class="done"><span class="name">Teleoperation working</span> <time datetime="2026-09-20">Sept 20, 2026</time> <span class="state">done</span></li>
+          <li><span class="name">First autonomous grasp</span> <time datetime="2026-10">October</time></li>
+          <li><span class="name">Multi-item tidy</span> <time datetime="2026-11">November</time></li>
+          <li><span class="name">Demo video, README and writeup</span> <time datetime="2026-12-13">Dec 13, 2026</time></li>
+        </ol>
+      </aside>
+    </section>
+
+    <section class="grid drone" id="drone">
+      <div class="head">
+        <h2>Autonomous object-tracking drone</h2>
+        <p class="small">UBC MECH410G, Sept–Dec 2025, continued independently until Sept 2026. Flight Control Lead. Bench-tested, not yet flown.</p>
+      </div>
+      <div class="side">
+        <figure>
+          <img src="assets/drone-hardware.jpg" width="800" height="770" alt="A white quadcopter with four motors and propellers sitting on a workbench, a laptop running configurator software behind it and hand tools on the wall." loading="lazy" decoding="async">
+          <figcaption class="caption">The airframe on the bench, with the flight controller's configurator open behind it.</figcaption>
+        </figure>
+        <div class="stack">
+          <p><a href="https://youtu.be/yqiiV8uiTjg"><strong>Watch the demo on YouTube</strong></a></p>
+          <p class="caption">The vision pipeline and ground station running live on the bench.</p>
+        </div>
+        <p><a href="https://github.com/Eddi-Xie/AOT_DRONE"><strong>AOT_DRONE on GitHub</strong></a></p>
+      </div>
+      <div class="text">
+        <p>On a three-person mechatronics software course team I wrote the C++ flight control while my teammates wrote the vision (Python) and a desktop ground station (C#). One of them led the hardware for the drone frame, and I soldered the motors to the ESCs and the UART connections for our tests. He and I carried on after the course, and I rebuilt the entire software stack on my own.</p>
+        <p>The current software stack includes a C++17 flight-control system written for the drone's Raspberry Pi 4. It runs a 50 Hz loop with a four-mode state machine (Manual, Takeoff, Tracking, LandSafely) and fail-closed safety gates, commanding the Betaflight firmware over MSP. For vision I used YOLOv8n detection and OpenCV KCF/CSRT tracking, which feed the loop through a FastAPI gateway. The ground station UI is React and TypeScript, showing me live video and telemetry. All the inter-process messaging runs as JSON over UDP or TCP.</p>
+        <p>If the drone loses its command link for 0.5 s, the stack drops to the LandSafely state. The whole stack is tested in CI with 9 C++ test binaries, about 190 pytest tests and the web app's vitest suite. I also ran a hardware-in-the-loop (HIL) bench test against the real board, which caught a channel-ordering bug the unit tests had missed.</p>
+      </div>
+      <figure class="photo">
+        <div class="frame">
+          <video width="1302" height="720" muted loop playsinline preload="none" poster="assets/drone-station.jpg" controls aria-describedby="drone-caption">
+            <source src="assets/drone-track.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="play" hidden>Play</button>
+        </div>
+        <figcaption id="drone-caption" class="caption">The ground station's vision feed following me around the room. The four mode buttons on the left are the state machine, and status and telemetry are fed through for live monitoring.</figcaption>
+      </figure>
+    </section>
+
+    <section class="grid capstone" id="capstone">
+      <div class="head">
+        <h2>3D-printed radioactive imaging phantoms</h2>
+        <p class="small">UBC capstone for Qurit at the BC Cancer Research Centre, Sept 2024–Apr 2025. Technical Manager. Nominated for top Mechanical Engineering capstone.</p>
+      </div>
+      <figure class="still-a">
+        <img src="assets/capstone-nozzles.jpg" width="1100" height="709" alt="Five small brass nozzles laid out on a white surface, each hand-marked with its bore diameter." loading="lazy" decoding="async">
+        <figcaption class="caption">Nozzle bores we tested against gantry speed. We needed to optimize for speed to limit how much the tracer decays during the print.</figcaption>
+      </figure>
+      <figure class="still-b">
+        <img src="assets/capstone-printer.jpg" width="700" height="1059" alt="A Rapidia paste-extrusion printer with two steel canisters bolted to its side, teal and pink feed lines arcing into a print chamber lit blue by ultraviolet lamps." loading="lazy" decoding="async">
+        <figcaption class="caption">The client's printer after we converted it. The two pressurised canisters on the left feed a radioactive and a clean resin through separate tubes into our custom Y-nozzle.</figcaption>
+      </figure>
+      <div class="text">
+        <p>We needed to print radioactive phantoms for medical imaging calibration, based on more anatomically realistic organs. The prints had to be water-insoluble, and heat curing was not allowed for radiation safety. We converted the printer (a Rapidia Conflux 1) to print UV-curable resin, with a custom Y-nozzle that allows gradient 3D printing, so the concentration of radioactive tracer can be varied to match the organ model.</p>
+        <p>I was the Technical Manager: I owned the technical documentation and process, and worked with two teammates to translate our stakeholders' requests into measurable requirements. I also owned the software. I adapted the Python pipeline that turns a PET scan into printable bodies for each gradient, and adapted the G-code post-processor to our new UV panel, cutting the curing passes on an eight-gradient print from 90 per layer to 12. I also rewrote the printer's start and end G-code, which took a 30-minute bake off every print.</p>
+        <p>On the hardware side I designed and modelled the Y-nozzle in SolidWorks, iterating through several designs and prototyping them as printed PLA parts. The two input streams had to mix inside the nozzle to come out as one blend, and a simple Y-body proved to do the trick. I waterjet-cut the blanks and machined them into our Y-nozzle on the milling machine.</p>
+        <p>We found out early that our printer was the wrong type of printer for resin, so most of the project was working through problems that kept it from extruding. Cold resin, calibration, and a rotor that kept seizing until we traced it to sealing rings swelling on contact with the resin were the main ones. After I replaced the seals, the machine printed a gradient for the first time on March 30, and the cubes came out before dawn the next morning, after I stayed in the lab overnight.</p>
+        <p>During our tests we used food dye to stand in for the radioisotope and to see our mixture. Our system printed eight concentration-level cubes in 3.5 hours, which the team extrapolated to roughly 14 to 15 hours for a full organ print. We came in 23% under our client's budget. I also co-wrote the requirement set the design was scored against, and wrote the extrusion and software reports, the operating procedure we handed over with the system, and every set of meeting minutes across the seven-month project. Qurit has since printed with live radioisotope on it, and called me for a while after the handover with troubleshooting questions.</p>
+      </div>
+      <aside class="side">
+        <figure>
+          <img src="assets/capstone-gradients.jpg" width="660" height="1337" alt="Eight printed squares on a steel build plate, shading from teal at the top left through purple to pink at the bottom right." loading="lazy" decoding="async">
+          <figcaption class="caption">Eight tracer concentrations printed in a single run, from none to full strength. Colour stands in for radioactivity, so the result can be measured with a camera instead of a scanner.</figcaption>
+        </figure>
+      </aside>
+      <figure class="photo">
+        <img src="assets/capstone-team.jpg" width="1100" height="825" alt="Seven people standing behind a draped table at an engineering expo, with the printer on the left and the project poster behind them." loading="lazy" decoding="async">
+        <figcaption class="caption">The team at UBC Design &amp; Innovation Day, April 2025, with the converted printer, our poster and our client. Seven months, five of us, one machine that mostly refused to extrude.</figcaption>
+      </figure>
+    </section>
+
+    <section class="grid coddle" id="coddle">
+      <div class="head">
+        <h2>Coddle</h2>
+        <p class="small">Co-founder and project lead, Aug 2025 to now. Shipped to a TestFlight closed beta in summer 2026.</p>
+      </div>
+      <figure class="shot-figure">
+        <div class="frame">
+          <video width="600" height="1224" muted loop playsinline preload="none" poster="assets/coddle-poster.jpg" controls aria-describedby="coddle-caption">
+            <source src="assets/coddle-demo.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="play" hidden>Play</button>
+        </div>
+        <figcaption id="coddle-caption" class="caption">Stocking the kitchen from a fridge photo, asking for dinner and picking from the three recipes it generates, cooking against three timers at once, then clearing what was used. Cut from three screen recordings, with the waits trimmed.</figcaption>
+      </figure>
+      <div class="text">
+        <p>Coddle is an AI cooking companion app my co-founder and I shipped to a closed beta. It keeps track of your kitchen inventory after an initial input from a photo of your fridge or a receipt, or by typing. It matches your inventory against existing recipes to tell you what you can make, or generates new recipes just for you. Cooking mode walks you through the steps with tips and independent timers, so you can work on several steps at once, and then updates your inventory with what you used. Photographing your inventory was our best feature: it put in 202 of the 211 ingredients our testers added, and of the 202 items the model read off their shelves, they corrected two.</p>
+        <p>I built the backend for the app: the database design and all 23 of its migrations, the API, authentication, rate limiting, search and the deployment. On the app I own most of the UI/UX, including the inventory, browse, cook and cookbook tabs, the recipe page, cooking mode and the food icons.</p>
+        <p>I also built our PostHog analytics, which we use to monitor usage and features. In our beta I found a validation-cap bug that was blocking a tester through our dashboard, traced it, and wrote the fix with six regression tests. The beta is still up for friends and family, and we hope to develop Coddle further for a larger audience.</p>
+        <p>Coddle is at <a href="https://www.coddle.app/"><strong>coddle.app</strong></a>.</p>
+      </div>
+    </section>
+
+    <section class="grid shutters" id="shutters">
+      <div class="head">
+        <h2>Motorized shutter prototype</h2>
+        <p class="small">MYT Shutters, Zhuhai. Engineering intern, R&amp;D and project lead, May–Aug 2025.</p>
+      </div>
+      <div class="text">
+        <p>Designed and built a proof-of-concept motorized shutter, from CAD and motor sizing to the control electronics and an RF remote. The main question was whether a drive unit could fit inside the existing shutter frame. I ran the R&amp;D solo from concept through sourcing, assembly and tuning, and advised on a CNC machinery purchase with suppliers. The prototype, as an MVP, was handed to third-party manufacturers as the basis for production development.</p>
+      </div>
+    </section>
+
+    <section class="grid lockin" id="lockin">
+      <div class="head">
+        <h2>Lock-In</h2>
+        <p class="small">Personal project, May–July 2026.</p>
+      </div>
+      <div class="text">
+        <p>A dashboard I built for my own habits, goals, budgeting and job search, on Next.js and Supabase with row-level security, hosted on Vercel. Its AI runs on tool calling: a coach reads my live data through eight tools before it answers, and research agents search the web and hand back a structured profile through a submit tool. I wrote the visual system and the design briefs first, then built each tab against them.</p>
+        <!-- Add the GitHub link here once Eddi-Xie/lock-in is public -->
+        <p>Live at <a href="https://lock-in-eddixie.vercel.app"><strong>lock-in-eddixie.vercel.app</strong></a>, behind a sign-in.</p>
+      </div>
+      <figure class="photo">
+        <img src="assets/lockin-career.jpg" width="1400" height="875" alt="The Lock-In career tab: a list of fifteen tracked robotics companies with fit scores and pipeline statuses, and Figure AI selected, showing its status chips, a short note, a five-part fit rating and the start of its AI research profile." loading="lazy" decoding="async">
+        <figcaption class="caption">The app's career tab, shown with demo data. Each company's profile and its five-part fit score come from a research agent that searches the web and hands everything back in one structured tool call.</figcaption>
+      </figure>
+    </section>
+
+    <section class="grid about" id="about">
+      <div class="head">
+        <h2>About</h2>
+      </div>
+      <div class="text">
+        <p>I am an MIE robotics MEng student at the University of Toronto, currently heavily focused on physical AI and embodied intelligence.</p>
+        <p>My undergraduate degree was a BASc in Mechanical Engineering with a Data Science minor at UBC, graduating in 2026. My MEng is in Mechanical and Industrial Engineering at the University of Toronto, with a robotics emphasis and co-op, 2026–28. My coursework focuses on perception, state estimation, motion planning, deep learning and nonlinear control. I am excited to further my studies and gain any relevant experience I can. Please feel free to reach out if you have any questions or opportunities! Thank you for reading my portfolio ^_^</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="grid contact" id="contact">
+    <div class="text">
+      <p><strong>Eddi Xie</strong></p>
+      <p><a href="mailto:eddi.xie@mail.utoronto.ca">eddi.xie@mail.utoronto.ca</a></p>
+      <p class="links"><a href="resume.pdf">Resume (PDF)</a><a href="https://github.com/Eddi-Xie">GitHub</a><a href="https://www.linkedin.com/in/eddixie/">LinkedIn</a></p>
+      <p class="small">Toronto. Looking for an 8-month co-op, May–December 2027, or other opportunities.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Each clip gets a Play/Pause control, and plays only while it is on screen.
+    // Without JS the native controls stay and nothing moves on its own.
+    const motionWanted = window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+
+    document.querySelectorAll('.frame').forEach((frame) => {
+      const video = frame.querySelector('video');
+      const button = frame.querySelector('.play');
+      const setLabel = (text) => { button.textContent = text; };
+
+      // The label follows real playback, so it stays honest if a file fails to load.
+      video.addEventListener('playing', () => setLabel('Pause'));
+      video.addEventListener('pause', () => setLabel('Play'));
+
+      const start = async () => {
+        try {
+          await video.play();
+        } catch {
+          // Refused by reduced motion, low-power mode, a data saver or a missing file.
+          setLabel('Play');
+        }
+      };
+
+      video.removeAttribute('controls');
+      button.hidden = false;
+
+      button.addEventListener('click', () => {
+        if (video.paused) {
+          delete frame.dataset.held;
+          start();
+        } else {
+          // Remember a deliberate pause so scrolling past does not override it.
+          frame.dataset.held = '';
+          video.pause();
+        }
+      });
+    });
+
+    if (motionWanted && 'IntersectionObserver' in window) {
+      const watcher = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const frame = entry.target;
+          const video = frame.querySelector('video');
+          if (entry.isIntersecting) {
+            if (!('held' in frame.dataset)) video.play().catch(() => {});
+          } else if (!video.paused) {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.4 });
+      document.querySelectorAll('.frame').forEach((frame) => watcher.observe(frame));
+    }
+  </script>
+</body>
+</html>

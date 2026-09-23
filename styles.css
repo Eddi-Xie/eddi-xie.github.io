@@ -1,0 +1,483 @@
+/* eddi-xie.github.io
+   One page, plain CSS, no build step.
+   Colours, type and layout follow tasks/design-proposal.md ("Print on the wall"). */
+
+/* Fonts: B612 Regular and Bold, self-hosted, Latin subset. SIL OFL, see assets/fonts/OFL.txt. */
+@font-face {
+  font-family: "B612";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/B612-Regular-latin.woff2") format("woff2");
+  ascent-override: 96.5%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "B612";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/B612-Bold-latin.woff2") format("woff2");
+  ascent-override: 96.5%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
+/* Metric-matched fallback: B612 is about 9% wider than the system sans, so without
+   size-adjust every line would reflow the moment the web font arrives. B612 Bold shares
+   Regular's widths, while the system bold is wider, so the bold fallback is adjusted less. */
+@font-face {
+  font-family: "B612 Fallback";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Helvetica Neue"), local("Arial");
+  size-adjust: 109%;
+  ascent-override: 96.5%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "B612 Fallback";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Helvetica Neue Bold"), local("Arial Bold");
+  size-adjust: 102%;
+  ascent-override: 96.5%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
+:root {
+  --pla-white: #F3F4F2;   /* the only page background */
+  --servo-black: #1A1C1E; /* text, links, focus rings, the one button */
+  --aluminium: #525960;   /* picture captions and milestone dates */
+  --mat-green: #27724F;   /* the word "done", nothing else */
+  --measure: 575px;       /* keeps body lines under about 72 characters */
+}
+
+html {
+  font-synthesis: none;
+}
+
+body {
+  margin: 0;
+  background: var(--pla-white);
+  color: var(--servo-black);
+  font-family: "B612", "B612 Fallback", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+p,
+figure,
+figcaption,
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+p,
+li,
+figcaption {
+  max-width: var(--measure);
+}
+
+.small {
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.caption {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--aluminium);
+}
+
+a {
+  color: var(--servo-black);
+  text-decoration: underline 2px currentColor;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+a:hover {
+  text-decoration-thickness: 3px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--servo-black);
+  outline-offset: 3px;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Skip link: the nav has nine links, so keyboard users get a way past them. */
+.skip {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 3;
+  padding: 10px 16px;
+  background: var(--servo-black);
+  color: var(--pla-white);
+  font-weight: 700;
+}
+
+.skip:focus {
+  top: 16px;
+}
+
+/* Navigation: static on phones, sticky from 900px up. Same colour as the page, no rule under it. */
+.nav {
+  background: var(--pla-white);
+}
+
+.nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 16px;
+  width: min(1120px, 100% - 32px);
+  margin-inline: auto;
+  padding-block: 6px;
+  list-style: none;
+}
+
+.nav li {
+  max-width: none;
+}
+
+/* Nav links are the one place without a resting underline: nine underlined words in a row read as noise. */
+.nav a {
+  display: inline-block;
+  padding-block: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  text-decoration: underline 2px currentColor;
+}
+
+/* Page column: one column with 16px gutters on phones, a 12-column grid from 900px. */
+.grid {
+  width: min(1120px, 100% - 32px);
+  margin-inline: auto;
+}
+
+.grid > * + *,
+.text > * + *,
+.side > * + * {
+  margin-top: 24px;
+}
+
+.head > * + *,
+.card > * + *,
+.stack > * + *,
+.contact .text > * + * {
+  margin-top: 8px;
+}
+
+.hero > .card {
+  margin-top: 32px;
+}
+
+section,
+footer {
+  margin-top: 96px;
+}
+
+/* Room below the end card so the last line doesn't sit on the bottom edge. */
+footer {
+  padding-bottom: 96px;
+}
+
+.hero {
+  margin-top: 24px;
+}
+
+figure figcaption {
+  margin-top: 12px;
+}
+
+/* Hero: the clip, then the title card under it. Full bleed on phones. */
+.film {
+  margin-inline: -16px;
+}
+
+.film figcaption {
+  padding-inline: 16px;
+}
+
+.frame {
+  position: relative;
+}
+
+.frame video {
+  width: 100%;
+}
+
+/* The only element with a background of its own; the nav and skip link carry the page colour. */
+.play {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 0;
+  background: var(--servo-black);
+  color: var(--pla-white);
+  font: 700 15px/1 "B612", "B612 Fallback", system-ui, sans-serif;
+  cursor: pointer;
+}
+
+/* Two-tone ring so it is visible over any video frame. */
+.play:focus-visible {
+  outline: 2px solid var(--pla-white);
+  outline-offset: 0;
+  box-shadow: 0 0 0 4px var(--servo-black);
+}
+
+.links a,
+.contact a[href^="mailto:"] {
+  display: inline-block;
+  padding-block: 10px;
+  font-weight: 700;
+}
+
+.links a {
+  margin-right: 24px;
+}
+
+.links a:last-child {
+  margin-right: 0;
+}
+
+/* Rig milestones: a plain text list. The dates carry the order. */
+.milestones {
+  list-style: none;
+}
+
+.milestones li + li {
+  margin-top: 24px;
+}
+
+.milestones .name {
+  display: block;
+}
+
+.milestones time {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--aluminium);
+}
+
+.state {
+  margin-left: 12px;
+  color: var(--mat-green);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+/* Coddle: the phone-shaped demo sits above the text on phones, beside it from 600px.
+   The width goes on the frame, so the caption can still run the full column below it. */
+.coddle .frame {
+  width: 240px;
+  max-width: 100%;
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .coddle {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    column-gap: 24px;
+  }
+
+  .coddle .head {
+    grid-column: 1 / -1;
+  }
+
+  .coddle .text {
+    margin-top: 24px;
+  }
+}
+
+@media (min-width: 900px) {
+  html {
+    scroll-padding-top: 64px;
+  }
+
+  body {
+    font-size: 17px;
+  }
+
+  h1,
+  h2 {
+    font-size: 32px;
+  }
+
+  .small,
+  .caption,
+  .milestones time,
+  .state,
+  .nav a {
+    font-size: 15px;
+  }
+
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  .nav ul {
+    gap: 0 24px;
+    width: min(1120px, 100% - 48px);
+    padding-block: 14px;
+  }
+
+  .nav a {
+    padding-block: 0;
+  }
+
+  section,
+  footer {
+    margin-top: 160px;
+  }
+
+  footer {
+    padding-bottom: 128px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: 24px;
+    row-gap: 24px;
+    align-items: start;
+    width: min(1120px, 100% - 48px);
+  }
+
+  .grid > * + *,
+  .hero > .card {
+    margin-top: 0;
+  }
+
+  /* After .grid so the hero's wider row gap wins. */
+  .hero {
+    margin-top: 32px;
+    row-gap: 32px;
+  }
+
+  .head {
+    grid-column: 1 / 13;
+  }
+
+  .text {
+    grid-column: 1 / 8;
+  }
+
+  .side {
+    grid-column: 9 / 13;
+  }
+
+  .film {
+    grid-column: 1 / 13;
+    margin-inline: 0;
+  }
+
+  .film figcaption {
+    padding-inline: 0;
+  }
+
+  /* Only the hero video is height-aware: the reserve keeps the caption, the name and
+     the three links above the fold. The text column never changes with window height.
+     Clips further down the page simply fill their column. */
+  .film .frame video {
+    width: clamp(560px, calc((100vh - 240px) * 16 / 9), 100%);
+  }
+
+  .card {
+    grid-column: 1 / 8;
+  }
+
+  .links a,
+  .contact a[href^="mailto:"] {
+    padding-block: 0;
+  }
+
+  .rig .still-a,
+  .capstone .still-a {
+    grid-column: 1 / 8;
+    grid-row: 2;
+  }
+
+  .rig .still-b,
+  .capstone .still-b {
+    grid-column: 9 / 13;
+    grid-row: 2;
+  }
+
+  .rig .text,
+  .rig .side,
+  .capstone .text,
+  .capstone .side {
+    grid-row: 3;
+  }
+
+  /* Closing photo below the text and the aside. */
+  .capstone .photo {
+    grid-column: 1 / 10;
+    grid-row: 4;
+  }
+
+  .drone .text,
+  .drone .side {
+    grid-row: 2;
+  }
+
+  .drone .photo {
+    grid-column: 1 / 10;
+    grid-row: 3;
+  }
+
+  .lockin .photo {
+    grid-column: 1 / 10;
+  }
+
+  .coddle .shot-figure {
+    grid-column: 1 / 4;
+    grid-row: 2;
+  }
+
+  .coddle .text {
+    grid-column: 4 / 13;
+    grid-row: 2;
+  }
+
+  .coddle .frame {
+    width: 100%;
+  }
+}

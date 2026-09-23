@@ -1,0 +1,14 @@
+# Source material, never published. Keep out of the repo.
+capstone_material/
+capstone material/
+robot-arm-material/
+aot-drone_material/
+coddle_material/
+lockin_material/
+
+# Working notes and project instructions: private, never published.
+CLAUDE.md
+tasks/
+
+# macOS
+.DS_Store
