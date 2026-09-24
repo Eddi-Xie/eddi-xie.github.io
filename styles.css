@@ -441,16 +441,29 @@ figure figcaption {
   }
 
   .rig .text,
-  .rig .side,
-  .capstone .text,
-  .capstone .side {
+  .rig .side {
     grid-row: 3;
+  }
+
+  /* The printer photo is far taller than the nozzles beside it, so it runs down into row 3
+     and the text starts right under the nozzles. The text also spans an empty fifth row,
+     which takes up its extra height instead of opening a gap above the gradients photo. */
+  .capstone .still-b {
+    grid-row: 2 / 4;
+  }
+
+  .capstone .text {
+    grid-row: 3 / 6;
+  }
+
+  .capstone .side {
+    grid-row: 4;
   }
 
   /* Closing photo below the text and the aside. */
   .capstone .photo {
     grid-column: 1 / 10;
-    grid-row: 4;
+    grid-row: 6;
   }
 
   .drone .text,
